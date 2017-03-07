@@ -1,5 +1,6 @@
 # Underwood: A simple way to use Netflix Hystrix
 
+[![][travis img]][travis]
 [![][license img]][license]
 
 Underwood is a library over Hystrix that allows you to use Java 8 lambdas, keeping your code simple and clean.
@@ -72,6 +73,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[travis]:https://travis-ci.org/ppallocchi/underwood
+[travis img]:https://travis-ci.org/ppallocchi/underwood.svg?branch=master
 
 [license]:LICENSE.txt
 [license img]:https://img.shields.io/github/license/mashape/apistatus.svg
