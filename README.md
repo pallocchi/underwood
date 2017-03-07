@@ -3,9 +3,9 @@
 [![][travis img]][travis]
 [![][license img]][license]
 
-Underwood is a library over Hystrix that allows you to use Java 8 lambdas, keeping your code simple and clean.
+Underwood is a library over [Hystrix](https://github.com/Netflix/Hystrix) that allows you to use Java 8 lambdas, keeping your code simple and clean.
 
-The following example is a simple HystrixCommand and its invocation:
+The following example is a simple `HystrixCommand` and its invocation:
 
 ```java
 public class CommandHelloWorld extends HystrixCommand<String> {
@@ -34,7 +34,7 @@ public class CommandHelloWorld extends HystrixCommand<String> {
 String greet = new CommandHelloWorld("Bob").execute();
 ```
 
-But using Underwood you just write:
+But using **Underwood** you just write:
 
 ```java
 String greet = Underwood.forSingle(String.class)
