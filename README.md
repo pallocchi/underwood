@@ -21,6 +21,12 @@ public class CommandHelloWorld extends HystrixCommand<String> {
     protected String run() {
         return "Hello " + name + "!";
     }
+    
+    @Override
+	protected String getFallback() {
+        return "Hello anonymous!";
+	}
+
 }
 ```
 
@@ -34,6 +40,7 @@ But using Underwood you just write:
 String greet = Underwood.forSingle(String.class)
   .withGroup("ExampleGroup")
   .withName(name)
+  .withFallback(e -> "Hello anonymous!")
   .execute(() -> "Hello " + name + "!");
 ```
 
