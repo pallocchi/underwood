@@ -40,7 +40,7 @@ But using **Underwood** you just write:
 ```java
 String greet = Underwood.forSingle(String.class)
   .withGroup("ExampleGroup")
-  .withName(name)
+  .withName("ExampleCommand")
   .withFallback(e -> "Hello anonymous!")
   .execute(() -> "Hello " + name + "!");
 ```
@@ -55,7 +55,7 @@ As you see, you don't have to create an extra class for each command anymore!
 // Retrieve a single string
 String greet = Underwood.forSingle(String.class)
   .withGroup("ExampleGroup")
-  .withName("ExampleName")
+  .withName("ExampleCommand")
   .withFallback(e -> "Hello anonymous!")
   .execute(() -> "Hello Frank!");
 ```
@@ -65,7 +65,7 @@ String greet = Underwood.forSingle(String.class)
 // Retrieve a list of strings
 List<String> presidents = Underwood.forList(String.class)
   .withGroup("ExampleGroup")
-  .withName("ExampleName")
+  .withName("ExampleCommand")
   .withFallback(e -> Collections.emptyList())
   .execute(() -> Arrays.asList("Frank"));
 ```
@@ -76,7 +76,7 @@ List<String> presidents = Underwood.forList(String.class)
 // Add a timeout of 5 seconds
 String greet = Underwood.forSingle(String.class)
   .withGroup("ExampleGroup")
-  .withName("ExampleName")
+  .withName("ExampleCommand")
   .withTimeout(5000)
   .withFallback(e -> "Hello anonymous!")
   .execute(() -> "Hello Frank!");
