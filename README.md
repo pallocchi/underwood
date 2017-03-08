@@ -14,7 +14,8 @@ public class CommandHelloWorld extends HystrixCommand<String> {
     private final String name;
 
     public CommandHelloWorld(String name) {
-        super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"));
+        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
+		.andCommandKey(HystrixCommandKey.Factory.asKey("ExampleCommand")));
         this.name = name;
     }
 
