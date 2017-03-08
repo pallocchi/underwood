@@ -46,9 +46,18 @@ String greet = Underwood.forSingle(String.class)
 ```
 
 As you see, you don't have to create an extra class for each command anymore!
-## Binaries
+## Maven
 
-Example for Maven:
+Add repository:
+
+```xml
+<repository>
+    <id>ppallocchi</id>
+    <url>https://dl.bintray.com/ppallocchi/maven</url>
+</repository>
+```
+
+Add dependency:
 
 ```xml
 <dependency>
