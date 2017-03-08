@@ -43,6 +43,7 @@ public class Underwood {
 	/**
 	 * Creates a builder for a command that retrieves a single result of specified type
 	 * 
+	 * @param <T> the result type
 	 * @param type the result type
 	 * @return the command builder
 	 */
@@ -53,6 +54,7 @@ public class Underwood {
 	/**
 	 * Creates a builder for a command that retrieves a list of results of specified type
 	 * 
+	 * @param <T> the result type
 	 * @param type the result type
 	 * @return the command builder
 	 */
@@ -63,6 +65,7 @@ public class Underwood {
 	/**
 	 * Create a builder for a command that retrieves a set of results of specified type
 	 * 
+	 * @param <T> the result type
 	 * @param type the result type
 	 * @return the command builder
 	 */

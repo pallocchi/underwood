@@ -37,7 +37,7 @@ public class ForSetTest {
 	
 	private static final String GROUP = "Test";
 	private static final String NAME = ForSetTest.class.getSimpleName();
-	private static final Integer TIMEOUT = 100;
+	private static final Integer TIMEOUT = 1000;
 	
 	private static final Set<Integer> EXPECTED_VALUE = new HashSet<>(Arrays.asList(1));
 	private static final Set<Integer> FALLBACK_VALUE = Collections.emptySet();
@@ -78,7 +78,7 @@ public class ForSetTest {
 				.execute(() -> {
 					try {
 						// Simulate delay to throw a timeout
-						Thread.sleep(TIMEOUT*10);
+						Thread.sleep(TIMEOUT*2);
 					} catch (InterruptedException e) {
 						// Do nothing
 					}

@@ -109,7 +109,6 @@ public class UnderwoodVoidCommand extends HystrixCommand<Void>{
 		 * Executes the command
 		 * 
 		 * @param action the action to execute
-		 * @return the action result
 		 */
 		public void execute(Action action) {
 			this.action = action;

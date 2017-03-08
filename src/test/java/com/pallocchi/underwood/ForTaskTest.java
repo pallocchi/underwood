@@ -31,7 +31,7 @@ public class ForTaskTest {
 	
 	private static final String GROUP = "Test";
 	private static final String NAME = ForTaskTest.class.getSimpleName();
-	private static final Integer TIMEOUT = 100;
+	private static final Integer TIMEOUT = 1000;
 	
 	@Test(expected = HystrixRuntimeException.class)
 	public void testErrorWithoutFallback() {
@@ -50,7 +50,7 @@ public class ForTaskTest {
 				.execute(() -> {
 					try {
 						// Simulate delay to throw a timeout
-						Thread.sleep(TIMEOUT*10);
+						Thread.sleep(TIMEOUT*2);
 					} catch (InterruptedException e) {
 						// Do nothing
 					}

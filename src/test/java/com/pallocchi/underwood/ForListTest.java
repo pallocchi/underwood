@@ -36,7 +36,7 @@ public class ForListTest {
 	
 	private static final String GROUP = "Test";
 	private static final String NAME = ForListTest.class.getSimpleName();
-	private static final Integer TIMEOUT = 100;
+	private static final Integer TIMEOUT = 1000;
 	
 	private static final List<Integer> EXPECTED_VALUE = Arrays.asList(1);
 	private static final List<Integer> FALLBACK_VALUE = Collections.emptyList();
@@ -77,7 +77,7 @@ public class ForListTest {
 				.execute(() -> {
 					try {
 						// Simulate delay to throw a timeout
-						Thread.sleep(TIMEOUT*10);
+						Thread.sleep(TIMEOUT*2);
 					} catch (InterruptedException e) {
 						// Do nothing
 					}

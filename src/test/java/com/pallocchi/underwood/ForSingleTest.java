@@ -32,7 +32,7 @@ public class ForSingleTest {
 	
 	private static final String GROUP = "Test";
 	private static final String NAME = ForSingleTest.class.getSimpleName();
-	private static final Integer TIMEOUT = 100;
+	private static final Integer TIMEOUT = 1000;
 	
 	private static final Integer EXPECTED_VALUE = 1;
 	private static final Integer FALLBACK_VALUE = 0;
@@ -73,7 +73,7 @@ public class ForSingleTest {
 				.execute(() -> {
 					try {
 						// Simulate delay to throw a timeout
-						Thread.sleep(TIMEOUT*10);
+						Thread.sleep(TIMEOUT*2);
 					} catch (InterruptedException e) {
 						// Do nothing
 					}
