@@ -32,7 +32,7 @@ public class CommandHelloWorld extends HystrixCommand<String> {
 ```
 
 ```java
-String greet = new CommandHelloWorld("Bob").execute();
+String greet = new CommandHelloWorld("Frank").execute();
 ```
 
 But using **Underwood** you just write:
@@ -46,6 +46,42 @@ String greet = Underwood.forSingle(String.class)
 ```
 
 As you see, you don't have to create an extra class for each command anymore!
+
+## Examples
+
+### Single
+
+```java
+// Retrieve a single string
+String greet = Underwood.forSingle(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleName")
+  .withFallback(e -> "Hello anonymous!")
+  .execute(() -> "Hello Frank!");
+```
+### List
+
+```java
+// Retrieve a list of strings
+List<String> presidents = Underwood.forList(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleName")
+  .withFallback(e -> Collections.emptyList())
+  .execute(() -> Arrays.asList("Frank"));
+```
+
+### Timeout
+
+```java
+// Add a timeout of 5 seconds
+String greet = Underwood.forSingle(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleName")
+  .withTimeout(5000)
+  .withFallback(e -> "Hello anonymous!")
+  .execute(() -> "Hello Frank!");
+```
+
 ## Maven
 
 Add repository:
