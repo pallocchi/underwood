@@ -4,9 +4,9 @@
 	<groupId>com.pallocchi</groupId>
 	<artifactId>underwood</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.2</version>
+	<version>1.0.0</version>
 	<properties>
-		<bintray.repo>ppallocchi/maven-repo</bintray.repo>
+		<bintray.repo>ppallocchi/maven</bintray.repo>
 		<bintray.package>underwood</bintray.package>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
