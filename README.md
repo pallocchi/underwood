@@ -71,6 +71,16 @@ List<String> presidents = Underwood.forList(String.class)
   .execute(() -> Arrays.asList("Frank"));
 ```
 
+### Task
+
+```java
+// Execution without results
+Underwood.forTask()
+  .withGroup("ExampleGroup")
+  .withName("ExampleCommand")
+  .execute(() -> System.out.println("Hello Frank!"));
+```
+
 ### Timeout
 
 ```java
