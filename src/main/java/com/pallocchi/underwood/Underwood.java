@@ -24,6 +24,7 @@
 package com.pallocchi.underwood;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import com.pallocchi.underwood.commands.UnderwoodCommand;
@@ -49,6 +50,17 @@ public class Underwood {
 	 */
 	public static <T> UnderwoodCommand.Builder<T> forSingle(Class<T> type) {
 		return new UnderwoodCommand.Builder<T>();
+	}
+	
+	/**
+	 * Creates a builder for a command that retrieves an optional result of specified type
+	 * 
+	 * @param <T> the result type
+	 * @param type the result type
+	 * @return the command builder
+	 */
+	public static <T> UnderwoodCommand.Builder<Optional<T>> forOptional(Class<T> type) {
+		return new UnderwoodCommand.Builder<Optional<T>>();
 	}
 	
 	/**
