@@ -14,7 +14,8 @@ public class CommandHelloWorld extends HystrixCommand<String> {
     private final String name;
 
     public CommandHelloWorld(String name) {
-        super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"));
+        super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
+		.andCommandKey(HystrixCommandKey.Factory.asKey("ExampleCommand")));
         this.name = name;
     }
 
@@ -32,7 +33,7 @@ public class CommandHelloWorld extends HystrixCommand<String> {
 ```
 
 ```java
-String greet = new CommandHelloWorld("Bob").execute();
+String greet = new CommandHelloWorld("Frank").execute();
 ```
 
 But using **Underwood** you just write:
@@ -40,15 +41,70 @@ But using **Underwood** you just write:
 ```java
 String greet = Underwood.forSingle(String.class)
   .withGroup("ExampleGroup")
-  .withName(name)
+  .withName("ExampleCommand")
   .withFallback(e -> "Hello anonymous!")
   .execute(() -> "Hello " + name + "!");
 ```
 
 As you see, you don't have to create an extra class for each command anymore!
-## Binaries
 
-Example for Maven:
+## Examples
+
+### Single
+
+```java
+// Retrieve a single string
+String greet = Underwood.forSingle(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleCommand")
+  .withFallback(e -> "Hello anonymous!")
+  .execute(() -> "Hello Frank!");
+```
+### List
+
+```java
+// Retrieve a list of strings
+List<String> presidents = Underwood.forList(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleCommand")
+  .withFallback(e -> Collections.emptyList())
+  .execute(() -> Arrays.asList("Frank"));
+```
+
+### Task
+
+```java
+// Execution without results
+Underwood.forTask()
+  .withGroup("ExampleGroup")
+  .withName("ExampleCommand")
+  .execute(() -> System.out.println("Hello Frank!"));
+```
+
+### Timeout
+
+```java
+// Add a timeout of 5 seconds
+String greet = Underwood.forSingle(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleCommand")
+  .withTimeout(5000)
+  .withFallback(e -> "Hello anonymous!")
+  .execute(() -> "Hello Frank!");
+```
+
+## Maven
+
+Add repository:
+
+```xml
+<repository>
+    <id>ppallocchi</id>
+    <url>https://dl.bintray.com/ppallocchi/maven</url>
+</repository>
+```
+
+Add dependency:
 
 ```xml
 <dependency>
