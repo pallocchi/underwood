@@ -60,6 +60,18 @@ String greet = Underwood.forSingle(String.class)
   .withFallback(e -> "Hello anonymous!")
   .execute(() -> "Hello Frank!");
 ```
+
+### Optional
+
+```java
+// Retrieve an optional string
+Optional<String> greet = Underwood.forOptional(String.class)
+  .withGroup("ExampleGroup")
+  .withName("ExampleCommand")
+  .withFallback(e -> Optional.empty())
+  .execute(() -> Optional.of("Hello Frank!"));
+```
+
 ### List
 
 ```java
