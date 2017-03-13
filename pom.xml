@@ -4,7 +4,7 @@
 	<groupId>com.pallocchi</groupId>
 	<artifactId>underwood</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<properties>
 		<bintray.repo>ppallocchi/maven</bintray.repo>
 		<bintray.package>underwood</bintray.package>
